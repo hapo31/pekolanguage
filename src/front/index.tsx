@@ -2,11 +2,14 @@ import React from "react";
 import { render } from "react-dom";
 import { RecoilRoot } from "recoil";
 import Content from "./containers/Content";
+import { Container } from "@material-ui/core";
 
 const app = (
-  <RecoilRoot>
-    <Content />
-  </RecoilRoot>
+  <Container>
+    <RecoilRoot>
+      <Content />
+    </RecoilRoot>
+  </Container>
 );
 
 render(app, document.getElementById("app"));
