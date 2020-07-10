@@ -5,12 +5,10 @@ const TOKENS_MAP = [
   ["だよ", "."],
   ["はぃぃ", ","],
   ["ふざけんな", "["],
-  ["マンッ", "]"]
+  ["マンッ", "]"],
 ];
 
-
 export default class PekolanguageContext {
-
   private mem: number[] = [];
   private ptr = 0;
   private nestStack: number[] = [];
@@ -21,7 +19,7 @@ export default class PekolanguageContext {
 
   public execute(code: string) {
     this.code = this.transpilePekotoBF(code);
-    while (this.read()) { };
+    while (this.read());
     return this.output;
   }
 
@@ -58,11 +56,13 @@ export default class PekolanguageContext {
         }
         break;
       case "]":
-        const nextPos = this.nestStack.pop();
-        if (nextPos === undefined) {
-          throw Error(`対応する[がありません pos:${this.pos}`);
+        {
+          const nextPos = this.nestStack.pop();
+          if (nextPos === undefined) {
+            throw Error(`対応する[がありません pos:${this.pos}`);
+          }
+          this.pos = nextPos - 1;
         }
-        this.pos = nextPos - 1;
         break;
     }
 
@@ -76,8 +76,9 @@ export default class PekolanguageContext {
   }
 
   private transpilePekotoBF(rawCode: string) {
-
-    return TOKENS_MAP.reduce((prev, curr) => prev.replace(new RegExp(curr[0], "g"), curr[1]), rawCode);
+    return TOKENS_MAP.reduce(
+      (prev, curr) => prev.replace(new RegExp(curr[0], "g"), curr[1]),
+      rawCode
+    );
   }
-
 }
