@@ -4,15 +4,29 @@
   "main": "index.js",
   "author": "happou31 <happo31@gmail.com>",
   "license": "MIT",
+  "scripts": {
+    "start": "parcel ./src/front/index.html",
+    "format": "eslint --fix './src/**/*.{ts,tsx}'",
+    "build": "parcel build ./src/front/index.html "
+  },
   "dependencies": {
+    "@material-ui/core": "^4.11.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "recoil": "^0.0.10",
     "styled-components": "^5.1.1"
   },
   "devDependencies": {
     "@types/node": "^14.0.20",
     "@types/react": "^16.9.41",
     "@types/react-dom": "^16.9.8",
+    "@typescript-eslint/eslint-plugin": "^2.30.0",
+    "@typescript-eslint/parser": "^2.30.0",
+    "eslint": "^5.16.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-prettier": "^3.1.3",
+    "eslint-plugin-react": "^7.19.0",
+    "prettier": "~1.19.1",
     "parcel": "^1.12.4",
     "ts-node": "^8.10.2",
     "typescript": "^3.9.6",
