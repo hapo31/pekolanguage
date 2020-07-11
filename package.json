@@ -7,7 +7,7 @@
   "scripts": {
     "start": "parcel ./src/front/index.html",
     "format": "eslint --fix './src/**/*.{ts,tsx}'",
-    "build": "parcel build ./src/front/index.html "
+    "build": "parcel build ./src/front/index.html --public-url ."
   },
   "dependencies": {
     "@material-ui/core": "^4.11.0",
