@@ -38,7 +38,7 @@ const useStyles = makeStyles(theme =>
         backgroundColor: "silver",
       },
     },
-    cell: {
+    bold: {
       fontWeight: "bold",
     },
   })
@@ -51,8 +51,8 @@ export default () => {
       <Table className={classes.table} aria-label="simple table">
         <TableHead>
           <TableRow>
-            <TableCell>Pekolanguage</TableCell>
-            <TableCell>Brainf*ck</TableCell>
+            <TableCell className={classes.bold}>Pekolanguage</TableCell>
+            <TableCell className={classes.bold}>Brainf*ck</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -62,7 +62,7 @@ export default () => {
                 <TableCell component="th" scope="row">
                   {row.to}
                 </TableCell>
-                <TableCell className={classes.cell}>{row.from}</TableCell>
+                <TableCell className={classes.bold}>{row.from}</TableCell>
               </TableRow>
             );
           })}
