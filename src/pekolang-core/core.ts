@@ -2,6 +2,7 @@ const TOKENS_MAP = [
   ["ｱｯｱｯｱｯ", "+"],
   ["にーんじん", "-"],
   ["きｔら", ">"],
+  ["ぺこ", "<"],
   ["だよ", "."],
   ["はぃぃ", ","],
   ["ふざけんな", "["],
@@ -17,8 +18,13 @@ export default class PekolanguageContext {
 
   private output = "";
 
-  public execute(code: string) {
+  public async execute(code: string) {
+    return this.executeSync(code);
+  }
+  public executeSync(code: string) {
     this.code = this.transpilePekotoBF(code);
+    // eslint-disable-next-line
+    console.log(`Transpiled: ${code}\n => \n${this.code}`);
     while (this.read());
     return this.output;
   }
@@ -44,6 +50,20 @@ export default class PekolanguageContext {
         this.output += String.fromCharCode(this.mem[this.ptr]);
         break;
       case ",":
+        if (process) {
+          // node.js
+          // const buffers: Buffer[] = [];
+          // for await (const chunk of process.stdin) buffers.push(chunk);
+          // const buffer = Buffer.concat(buffers);
+          // const text = buffer.toString();
+          // this.mem[this.ptr] = text.charCodeAt(0);
+        } else {
+          // javascript
+          const text = window.prompt(`${this.pos}:>`);
+          if (text != null) {
+            this.mem[this.ptr] = text.charCodeAt(0);
+          }
+        }
         break;
       case "[":
         if (this.mem[this.ptr] === 0) {
@@ -75,7 +95,7 @@ export default class PekolanguageContext {
     return true;
   }
 
-  private transpilePekotoBF(rawCode: string) {
+  public transpilePekotoBF(rawCode: string) {
     return TOKENS_MAP.reduce(
       (prev, curr) => prev.replace(new RegExp(curr[0], "g"), curr[1]),
       rawCode
