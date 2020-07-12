@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { atom, useRecoilState } from "recoil";
-import Form from "../components/Form";
+import Form from "../../../components/Form";
 import {
   Box,
   Button,
@@ -12,9 +12,9 @@ import {
   Link,
   Container,
 } from "@material-ui/core";
-import PekolanguageContext from "../../pekolang-core/core";
+import PekolanguageContext from "../../../../pekolang-core/core";
 import clsx from "clsx";
-import Reference from "../components/Reference";
+import Reference from "../../../components/Reference";
 
 const useStyles = makeStyles(theme =>
   createStyles({

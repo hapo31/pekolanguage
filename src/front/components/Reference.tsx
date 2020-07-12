@@ -14,7 +14,7 @@ import {
 const rows = [
   { from: "+", to: "ｱｯｱｯｱｯ" },
   { from: "-", to: "にーんじん" },
-  { from: ">", to: "きtら" },
+  { from: ">", to: "きｔら" },
   { from: "<", to: "ぺこ" },
   { from: ".", to: "だよ" },
   { from: ",", to: "はぃぃ" },
