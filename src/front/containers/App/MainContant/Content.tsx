@@ -19,7 +19,8 @@ import Reference from "../../../components/Reference";
 const useStyles = makeStyles(theme =>
   createStyles({
     container: {
-      height: "100vh",
+      height: "100%",
+      minHeight: "80vh",
     },
     reference: {
       padding: "10px 10px",

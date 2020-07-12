@@ -24,14 +24,10 @@ const rows = [
 
 const useStyles = makeStyles(theme =>
   createStyles({
-    root: {
-      border: "solid 2px gray",
-    },
+    root: {},
     table: {
+      border: "solid 2px silver",
       width: 20,
-      "> * > table": {
-        borderColor: "gray",
-      },
     },
     row: {
       "&:nth-of-type(even)": {
@@ -47,7 +43,7 @@ const useStyles = makeStyles(theme =>
 export default () => {
   const classes = useStyles();
   return (
-    <TableContainer component={Box}>
+    <TableContainer className={classes.root} component={Box}>
       <Table className={classes.table} aria-label="simple table">
         <TableHead>
           <TableRow>

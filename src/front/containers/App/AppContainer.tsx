@@ -7,7 +7,9 @@ import Footer from "./Footer";
 
 const useStyles = makeStyles(() =>
   createStyles({
-    rootContainer: {},
+    rootContainer: {
+      marginTop: "-11px",
+    },
   })
 );
 
